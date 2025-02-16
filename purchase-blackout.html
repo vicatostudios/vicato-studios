@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purchase Blackout Jeans - Vicato Studios</title>
+    <!-- Lightbox2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <style>
         /* Import a sleek font from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -42,6 +44,12 @@
             width: 200px; /* Adjust image size as needed */
             height: auto;
             border-radius: 10px;
+            cursor: pointer; /* Indicates the image is clickable */
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
         .product-name {
@@ -72,9 +80,9 @@
             background: #fff;
             border: none;
             border-radius: 5px;
+            cursor: pointer;
             font-family: 'Inter', sans-serif;
             font-size: 16px;
-            cursor: pointer;
             transition: background 0.3s ease;
         }
 
@@ -96,6 +104,18 @@
         a:hover {
             opacity: 1;
         }
+
+        /* Custom Close Button for Lightbox */
+        .lb-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
@@ -105,18 +125,22 @@
         <!-- Image Grid for Front and Back Views -->
         <div class="image-grid">
             <!-- Front View Image -->
-            <img src="IMG_6386.JPG" alt="Blackout Jeans Front">
+            <a href="IMG_6386.JPG" data-lightbox="blackout-jeans" data-title="Blackout Jeans - Front View">
+                <img src="IMG_6386.JPG" alt="Blackout Jeans Front">
+            </a>
             
             <!-- Back View Image -->
             <!-- ============================================ -->
             <!-- REPLACE THE LINK BELOW WITH YOUR IMAGE LINK -->
             <!-- ============================================ -->
-            <img src="IMG_6388.JPG" alt="Blackout Jeans Back">
+            <a href="IMG_6388.JPG" data-lightbox="blackout-jeans" data-title="Blackout Jeans - Back View">
+                <img src="IMG_6388.JPG" alt="Blackout Jeans Back">
+            </a>
             <!-- ============================================ -->
         </div>
 
         <div class="product-name">Blackout</div>
-        <div class="product-price">$200 USD</div>
+        <div class="product-price">$105 USD</div>
 
         <!-- Shipping Address Form -->
         <input type="text" placeholder="Full Name" required>
@@ -139,5 +163,33 @@
     <div class="back-home">
         <a href="index.html">Back to Home</a>
     </div>
+
+    <!-- Lightbox2 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Custom Close Button Script -->
+    <script>
+        // Add a custom close button to the lightbox
+        lightbox.option({
+            'alwaysShowNavOnTouchDevices': true,
+            'showImageNumberLabel': false,
+            'wrapAround': true,
+            'positionFromTop': 100, // Adjust the position of the lightbox
+        });
+
+        // Add a custom close button
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightboxOverlay = document.querySelector('.lb-overlay');
+            if (lightboxOverlay) {
+                const closeButton = document.createElement('div');
+                closeButton.className = 'lb-close';
+                closeButton.innerHTML = '&times;'; // "X" symbol
+                closeButton.onclick = function () {
+                    lightbox.end();
+                };
+                document.body.appendChild(closeButton);
+            }
+        });
+    </script>
 </body>
 </html>
