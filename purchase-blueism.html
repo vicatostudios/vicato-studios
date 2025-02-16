@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Blueism Jeans - Vicato Studios</title>
+    <style>
+        /* Import a sleek font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-weight: 400;
+            margin-top: 30px;
+        }
+
+        .purchase-container {
+            max-width: 600px; /* Increased width to fit two images */
+            margin: 0 auto;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .image-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between images */
+            margin-bottom: 20px;
+        }
+
+        .image-grid img {
+            width: 200px; /* Adjust image size as needed */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .purchase-container input, .purchase-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .purchase-container button {
+            width: 100%;
+            padding: 10px;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .purchase-container button:hover {
+            background: #ddd;
+        }
+
+        .back-home {
+            margin-top: 30px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Purchase Blueism Jeans</h1>
+    
+    <div class="purchase-container">
+        <!-- Image Grid for Front and Back Views -->
+        <div class="image-grid">
+            <!-- Front View Image -->
+            <img src="IMG_5695.JPG" alt="Blueism Jeans Front">
+            
+            <!-- Back View Image -->
+            <!-- ============================================ -->
+            <!-- REPLACE THE LINK BELOW WITH YOUR IMAGE LINK -->
+            <!-- ============================================ -->
+            <img src="IMG_5701.JPEG" alt="Blueism Jeans Back">
+            <!-- ============================================ -->
+        </div>
+
+        <div class="product-name">Blueism</div>
+        <div class="product-price">$175 USD</div>
+
+        <!-- Shipping Address Form -->
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Street Address" required>
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="State" required>
+        <input type="text" placeholder="ZIP Code" required>
+        <input type="text" placeholder="Country" required>
+
+        <!-- Payment Information Form -->
+        <input type="text" placeholder="Card Number" required>
+        <input type="text" placeholder="Expiration Date (MM/YY)" required>
+        <input type="text" placeholder="CVV" required>
+
+        <!-- Buy Now Button -->
+        <button type="submit">Buy Now</button>
+    </div>
+
+    <!-- Back to Home Link -->
+    <div class="back-home">
+        <a href="Vicato Studios.html">Back to Home</a>
+    </div>
+</body>
+</html>

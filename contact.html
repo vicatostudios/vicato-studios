@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vicato Studios</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-weight: 400;
+            margin-top: 50px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            width: 80%;
+            max-width: 400px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #222;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #ddd;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <div class="subtitle">
+        Reach out to us and turn your dream jeans into a reality with custom designs made just for you!
+    </div>
+    <form action="mailto:carlos.viaud@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>
