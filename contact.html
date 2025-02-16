@@ -39,7 +39,7 @@
             margin-top: 20px;
         }
 
-        input, textarea {
+        input, textarea, select {
             width: 80%;
             max-width: 400px;
             margin: 10px 0;
@@ -86,10 +86,31 @@
         Reach out to us and turn your dream jeans into a reality with custom designs made just for you!
     </div>
     <form action="mailto:carlos.viaud@gmail.com" method="post" enctype="text/plain">
+        <!-- Name (Mandatory) -->
         <input type="text" name="name" placeholder="Your Name" required>
+
+        <!-- Email (Mandatory) -->
         <input type="email" name="email" placeholder="Your Email" required>
+
+        <!-- Phone Number (Optional) -->
         <input type="tel" name="phone" placeholder="Your Phone Number">
+
+        <!-- Order Number (Optional) -->
+        <input type="text" name="order-number" placeholder="Order Number (if applicable)">
+
+        <!-- Subject (Dropdown) -->
+        <select name="subject" required>
+            <option value="" disabled selected>Select Subject</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Custom Design">Custom Design</option>
+            <option value="Order Support">Order Support</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <!-- Message (Mandatory) -->
         <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <!-- Submit Button -->
         <button type="submit">Send</button>
     </form>
     <a href="index.html">Back to Home</a>
