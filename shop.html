@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Vicato Studios</title>
+    <title>Contact Us - Vicato Studios</title>
     <style>
-        /* Import a sleek font from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
         body {
@@ -19,53 +18,59 @@
 
         h1 {
             font-weight: 400;
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
-        .product-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between columns */
-            margin-top: 30px;
+        .subtitle {
+            font-size: 18px;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
         }
 
-        .product-column {
+        form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 20px;
         }
 
-        .product-column img {
-            width: 200px; /* Adjust image size as needed */
-            height: auto;
-            border-radius: 10px; /* Optional: Adds rounded corners */
-            cursor: pointer; /* Indicates the image is clickable */
-            transition: transform 0.3s ease;
+        input, textarea, select {
+            width: 80%;
+            max-width: 400px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #222;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
         }
 
-        .product-column img:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
+        button {
+            padding: 10px 20px;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: background 0.3s ease;
         }
 
-        .product-column .product-name {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        .product-column .product-price {
-            font-size: 18px;
-            color: #aaa; /* Lighter color for price */
-            margin-top: 5px;
-        }
-
-        .back-home {
-            margin-top: 50px; /* Space above the "Back to Home" link */
-            margin-bottom: 30px; /* Space below the "Back to Home" link */
+        button:hover {
+            background: #ddd;
         }
 
         a {
             color: #fff;
             text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
@@ -73,37 +78,93 @@
         a:hover {
             opacity: 1;
         }
+
+        .notification {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-    <h1>Shop</h1>
-    
-    <!-- Product Grid -->
-    <div class="product-grid">
-        <!-- Left Column (First Product) -->
-        <div class="product-column">
-            <!-- Clickable Image -->
-            <a href="purchase-blackout.html">
-                <img src="IMG_6386.JPG" alt="Blackout Jeans">
-            </a>
-            <div class="product-name">Blackout</div>
-            <div class="product-price">$200 USD</div>
-        </div>
-
-        <!-- Right Column (Second Product) -->
-        <div class="product-column">
-            <!-- Clickable Image -->
-            <a href="purchase-blueism.html">
-                <img src="IMG_5695.JPG" alt="Blueism Jeans">
-            </a>
-            <div class="product-name">Blueism</div>
-            <div class="product-price">$175 USD</div>
-        </div>
+    <h1>Contact Us</h1>
+    <div class="subtitle">
+        Reach out to us and turn your dream jeans into a reality with custom designs made just for you!
     </div>
+
+    <!-- Notification Message -->
+    <div id="notification" class="notification">
+        Thanks for contacting us! We’ll get back to you soon.
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contact-form" action="https://formspree.io/f/mrbeoqkn" method="POST">
+        <!-- Name (Mandatory) -->
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <!-- Email (Mandatory) -->
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <!-- Phone Number (Optional) -->
+        <input type="tel" name="phone" placeholder="Your Phone Number">
+
+        <!-- Order Number (Optional) -->
+        <input type="text" name="order-number" placeholder="Order Number (if applicable)">
+
+        <!-- Subject (Dropdown) -->
+        <select name="subject" required>
+            <option value="" disabled selected>Select Subject</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Custom Design">Custom Design</option>
+            <option value="Order Support">Order Support</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <!-- Message (Mandatory) -->
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Send</button>
+    </form>
 
     <!-- Back to Home Link -->
     <div class="back-home">
         <a href="index.html">Back to Home</a>
     </div>
+
+    <!-- JavaScript to Handle Form Submission -->
+    <script>
+        const form = document.getElementById('contact-form');
+        const notification = document.getElementById('notification');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Show the notification
+                    notification.style.display = 'block';
+                    form.reset(); // Clear the form
+                } else {
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! Something went wrong. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
