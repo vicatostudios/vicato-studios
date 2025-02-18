@@ -83,6 +83,7 @@
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             font-size: 16px;
+            color: #000; /* Ensure text is visible */
             transition: background 0.3s ease;
         }
 
@@ -107,14 +108,22 @@
 
         /* Custom Close Button for Lightbox */
         .lb-close {
-            position: absolute;
+            position: fixed; /* Fixed position to stay visible */
             top: 20px;
             right: 20px;
             color: #fff;
-            font-size: 30px;
+            font-size: 40px; /* Larger size for better visibility */
             font-weight: bold;
             cursor: pointer;
             z-index: 9999;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 50%; /* Circular button */
+            transition: background 0.3s ease;
+        }
+
+        .lb-close:hover {
+            background: rgba(0, 0, 0, 0.9); /* Darker on hover */
         }
     </style>
 </head>
@@ -170,14 +179,6 @@
     <!-- Custom Close Button Script -->
     <script>
         // Add a custom close button to the lightbox
-        lightbox.option({
-            'alwaysShowNavOnTouchDevices': true,
-            'showImageNumberLabel': false,
-            'wrapAround': true,
-            'positionFromTop': 100, // Adjust the position of the lightbox
-        });
-
-        // Add a custom close button
         document.addEventListener('DOMContentLoaded', function () {
             const lightboxOverlay = document.querySelector('.lb-overlay');
             if (lightboxOverlay) {
