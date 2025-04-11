@@ -14,53 +14,61 @@
             color: #fff;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
 
         h1 {
             font-weight: 400;
             margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         .product-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between columns */
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 40px; /* Space between items */
+            max-width: 900px; /* Limit grid width */
+            margin: 0 auto; /* Center the grid */
+            padding: 20px;
         }
 
         .product-column {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .product-column img {
-            width: 200px; /* Adjust image size as needed */
-            height: auto;
-            border-radius: 10px; /* Optional: Adds rounded corners */
-            cursor: pointer; /* Indicates the image is clickable */
             transition: transform 0.3s ease;
         }
 
-        .product-column img:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
+        .product-column:hover {
+            transform: translateY(-5px); /* Slight lift effect on hover */
         }
 
-        .product-column .product-name {
+        .product-column img {
+            width: 100%;
+            max-width: 250px; /* Adjust image size */
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            object-fit: cover;
+            aspect-ratio: 3/4; /* Uniform aspect ratio for all images */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-name {
             font-size: 20px;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-weight: 500;
         }
 
-        .product-column .product-price {
+        .product-price {
             font-size: 18px;
-            color: #aaa; /* Lighter color for price */
-            margin-top: 5px;
+            color: #aaa;
+            margin-top: 8px;
         }
 
         .back-home {
-            margin-top: 50px; /* Space above the "Back to Home" link */
-            margin-bottom: 30px; /* Space below the "Back to Home" link */
+            margin-top: 60px;
+            margin-bottom: 30px;
         }
 
         a {
@@ -78,26 +86,42 @@
 <body>
     <h1>Shop</h1>
     
-    <!-- Product Grid -->
+    <!-- 2x2 Product Grid -->
     <div class="product-grid">
-        <!-- Left Column (First Product) -->
+        <!-- Blackout Jeans -->
         <div class="product-column">
-            <!-- Clickable Image -->
             <a href="purchase-blackout.html">
                 <img src="IMG_6386.JPG" alt="Blackout Jeans">
             </a>
             <div class="product-name">Blackout</div>
-            <div class="product-price">$200 USD</div>
+            <div class="product-price">$300 USD</div>
         </div>
 
-        <!-- Right Column (Second Product) -->
+        <!-- Blueism Jeans -->
         <div class="product-column">
-            <!-- Clickable Image -->
             <a href="purchase-blueism.html">
                 <img src="IMG_5695.JPG" alt="Blueism Jeans">
             </a>
             <div class="product-name">Blueism</div>
             <div class="product-price">$175 USD</div>
+        </div>
+
+        <!-- Litolas Jeans -->
+        <div class="product-column">
+            <a href="purchase-litolas.html">
+                <img src="IMG_0123.JPEG" alt="Litolas Jeans">
+            </a>
+            <div class="product-name">Litolas</div>
+            <div class="product-price">$[PRICE] USD</div> <!-- Add your price -->
+        </div>
+
+        <!-- Splits Jeans -->
+        <div class="product-column">
+            <a href="purchase-splits.html">
+                <img src="IMG_8286.JPG" alt="Splits Jeans">
+            </a>
+            <div class="product-name">Splits</div>
+            <div class="product-price">$[PRICE] USD</div> <!-- Add your price -->
         </div>
     </div>
 
